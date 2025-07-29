@@ -14,6 +14,8 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Users = lazy(() => import("./pages/Users"));
 const Products = lazy(() => import("./pages/Products"));
 const Analytics = lazy(() => import("./pages/Analytics"));
+const Notifications = lazy(() => import("./pages/Notifications"));
+const Settings = lazy(() => import("./pages/Settings"));
 
 const queryClient = new QueryClient();
 
@@ -60,6 +62,8 @@ const App = () => (
                   <Analytics />
                 </ProtectedRoute>
               } />
+              <Route path="notifications" element={<Notifications />} />
+              <Route path="settings" element={<Settings />} />
             </Route>
             
             {/* Catch all route */}

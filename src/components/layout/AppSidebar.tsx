@@ -5,7 +5,8 @@ import {
   Package, 
   Settings, 
   BarChart3,
-  Shield
+  Shield,
+  Bell
 } from 'lucide-react';
 import {
   Sidebar,
@@ -44,6 +45,12 @@ const navigationItems = [
     url: '/products',
     icon: Package,
     roles: ['admin'],
+  },
+  {
+    title: 'Notifications',
+    url: '/notifications',
+    icon: Bell,
+    roles: ['admin', 'user'],
   },
   {
     title: 'Settings',
