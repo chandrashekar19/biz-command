@@ -36,6 +36,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { TableSkeleton } from '@/components/ui/shimmer';
 
 export default function Products() {
   const { products, addProduct, updateProduct, deleteProduct, loadData, loading } = useDataStore();
@@ -138,15 +139,7 @@ export default function Products() {
   };
 
   if (loading) {
-    return (
-      <div className="space-y-6">
-        <Card className="animate-pulse">
-          <CardContent className="p-6">
-            <div className="h-64 bg-muted rounded"></div>
-          </CardContent>
-        </Card>
-      </div>
-    );
+    return <TableSkeleton />;
   }
 
   return (

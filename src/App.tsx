@@ -19,10 +19,12 @@ const Settings = lazy(() => import("./pages/Settings"));
 
 const queryClient = new QueryClient();
 
-// Loading component
-const LoadingSpinner = () => (
-  <div className="min-h-screen flex items-center justify-center">
-    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+// Shimmer component for lazy loading
+import { DashboardSkeleton } from '@/components/ui/shimmer';
+
+const LoadingShimmer = () => (
+  <div className="min-h-screen p-6">
+    <DashboardSkeleton />
   </div>
 );
 
@@ -32,7 +34,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={<LoadingShimmer />}>
           <Routes>
             {/* Redirect root to dashboard */}
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
