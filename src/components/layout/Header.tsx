@@ -49,15 +49,49 @@ export function Header() {
           </Button>
 
           {/* Notifications */}
-          <Button variant="ghost" size="icon" className="relative">
-            <Bell className="w-4 h-4" />
-            <Badge 
-              variant="destructive" 
-              className="absolute -top-1 -right-1 w-5 h-5 text-xs p-0 flex items-center justify-center"
-            >
-              3
-            </Badge>
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="relative">
+                <Bell className="w-4 h-4" />
+                <Badge 
+                  variant="destructive" 
+                  className="absolute -top-1 -right-1 w-5 h-5 text-xs p-0 flex items-center justify-center"
+                >
+                  3
+                </Badge>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="w-80" align="end">
+              <div className="flex flex-col space-y-1 p-2">
+                <p className="text-sm font-medium">Notifications</p>
+                <p className="text-xs text-muted-foreground">You have 3 unread notifications</p>
+              </div>
+              <DropdownMenuSeparator />
+              <div className="max-h-64 overflow-y-auto">
+                <DropdownMenuItem className="flex flex-col items-start p-3">
+                  <div className="flex items-center justify-between w-full">
+                    <p className="text-sm font-medium">New user registered</p>
+                    <span className="text-xs text-muted-foreground">2 min ago</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">John Doe has joined the platform</p>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="flex flex-col items-start p-3">
+                  <div className="flex items-center justify-between w-full">
+                    <p className="text-sm font-medium">Sale completed</p>
+                    <span className="text-xs text-muted-foreground">1 hour ago</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">Product "Premium Plan" sold for $99</p>
+                </DropdownMenuItem>
+                <DropdownMenuItem className="flex flex-col items-start p-3">
+                  <div className="flex items-center justify-between w-full">
+                    <p className="text-sm font-medium">System update</p>
+                    <span className="text-xs text-muted-foreground">3 hours ago</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1">Dashboard has been updated to v2.1.0</p>
+                </DropdownMenuItem>
+              </div>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* User Menu */}
           <DropdownMenu>
